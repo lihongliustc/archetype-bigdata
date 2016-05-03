@@ -1,0 +1,55 @@
+{
+
+  "resultList":
+  [
+    "TD.P_MART.USER.USERID",
+    "TD.P_MART.USER.USERNAME",
+    "TD.P_MART.ORDER.USERID",
+    "TD.P_CART.ORDER.ORDERID",
+    "TD.P_CART.ORDER.ORDERNAME",
+    "DB2.P_DATA.SALARY.USERID",
+    "DB2.P_DATA.SALARY.MONEY",
+    "DB2.P_DATA.LOG.USERID",
+    "DB2.P_DATA.LOG.USERNAME",
+    "HIVE.P_SCHEMA.MOBILE.NUMBER"
+  ],
+
+  "paramList":
+  [
+    {
+      "paramAtom": "TD.P_MART.USER.USERID",
+      "paramValue": " '1','2','3' ",
+      "operator": "in"
+    },
+    {
+      "paramAtom": "DB2.P_DATA.SALARY.MONEY",
+      "paramValue": " 5000 10000 ",
+      "operator": "between and"
+    },
+    {
+      "paramAtom": "TD.P_MART.USER.USERID",
+      "paramValue": " 3 12 ",
+      "operator": "between and"
+    }
+  ],
+
+  "joinList":
+  [
+    {
+      "masterDriver": "TD.P_MART.USER.USERID",
+      "slaveDriver": "TD.P_CART.ORDER.USERID",
+      "joinModel": "LEFT JOIN"
+    },
+    {
+      "masterDriver": "TD.P_MART.USER.USERID",
+      "slaveDriver": "DB2.P_DATA.SALARY.USERID",
+      "joinModel": "INNER JOIN"
+    },
+    {
+      "masterDriver": "TD.P_MART.USER.USERNAME",
+      "slaveDriver": "DB2.P_DATA.SALARY.USERNAME",
+      "joinModel": "RIGHT JOIN"
+    }
+  ]
+
+}

@@ -1,0 +1,48 @@
+{
+
+  "resultList":
+  [
+    "TD.db_alpha.TB_USER.PASSWD",
+    "TD.db_alpha.TB_USER_DETAIL.FULLNAME",
+    "DB2.db_beta.TB_ITEM.ITEMNAME"
+  ],
+
+  "paramList":
+  [
+    {
+      "paramAtom": "TD.db_alpha.TB_USER.USERID",
+      "paramValue": " 30 200 ",
+      "operator": "between and"
+    },
+    {
+      "paramAtom": "TD.db_alpha.TB_USER_DETAIL.USERID",
+      "paramValue": " 0 90 ",
+      "operator": "between and"
+    },
+    {
+      "paramAtom": "DB2.db_beta.TB_ORDER.ITEMID",
+      "paramValue": " 20 70 ",
+      "operator": "between and"
+    }
+  ],
+
+  "joinList":
+  [
+    {
+      "masterDriver": "TD.db_alpha.TB_USER.USERID",
+      "slaveDriver": "TD.db_alpha.TB_USER_DETAIL.USERID",
+      "joinModel": "INNER JOIN"
+    },
+    {
+      "masterDriver": "TD.db_alpha.TB_USER.USERID",
+      "slaveDriver": "DB2.db_beta.TB_ORDER.USERID",
+      "joinModel": "INNER JOIN"
+    },
+    {
+      "masterDriver": "DB2.db_beta.TB_ORDER.ITEMID",
+      "slaveDriver": "DB2.db_beta.TB_ITEM.ITEMID",
+      "joinModel": "INNER JOIN"
+    }
+  ]
+
+}
